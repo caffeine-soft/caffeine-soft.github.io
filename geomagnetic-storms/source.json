@@ -1,0 +1,5 @@
+{
+  "k_index_1m":"https://services.swpc.noaa.gov/json/planetary_k_index_1m.json", 
+  "xrays-1-day-primary":"https://services.swpc.noaa.gov/json/goes/primary/xrays-1-day.json",
+  "xrays-1-day-secondary":"https://services.swpc.noaa.gov/json/goes/secondary/xrays-1-day.json",
+}
