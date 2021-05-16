@@ -5,5 +5,8 @@
   "daily-geomagnetic-indices":"https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt",
   "current_gm_level":"https://services.swpc.noaa.gov/text/wwv.txt",
   "27-day-outlook":"https://services.swpc.noaa.gov/text/27-day-outlook.txt",
-  "3-day-geomag-forecast":"https://services.swpc.noaa.gov/text/3-day-geomag-forecast.txt"
+  "3-day-geomag-forecast":"https://services.swpc.noaa.gov/text/3-day-geomag-forecast.txt",
+  "xray-flares-latest-primary":"https://services.swpc.noaa.gov/json/goes/primary/xray-flares-latest.json",
+  "xray-flares-7-day-primary":"https://services.swpc.noaa.gov/json/goes/primary/xray-flares-7-day.json",
+  "xrays-3-day-primary":"https://services.swpc.noaa.gov/json/goes/primary/xrays-3-day.json"
 }
