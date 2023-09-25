@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>KIndexIndicator</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['gauge']});
+        google.charts.setOnLoadCallback(drawCurrentKIndexGauge);
+
+        async function getCurrentKIndex() {
+            try {
+                const response = await fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json');
+                const data = await response.json();
+                data.sort((a, b) => new Date(b.time_tag) - new Date(a.time_tag));
+                return data[0].estimated_kp;
+            } catch (error) {
+                console.log(error);
+                return undefined;
+            }
+        }
+
+        async function drawCurrentKIndexGauge() {
+            const value = await getCurrentKIndex();
+            var data = google.visualization.arrayToDataTable([
+                ['Label', 'Value'],
+                ['K-Index', value]
+            ]);
+
+            var options = {
+                animation:{easing: 'out'},
+                width: 400, height: 120,
+                redFrom: 5, redTo: 9,
+                max: 9, min: 0,
+                yellowFrom: 3, yellowTo: (6),
+                greenFrom: 0, greenTo: 3,
+                majorTicks: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+                minorTicks: 8
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+
+        setInterval(drawCurrentKIndexGauge, 60*1000);
+    </script>
+</head>
+<body>
+<div id="chart_div" style="width: 400px; height: 120px;"></div>
+</body>
+</html>
