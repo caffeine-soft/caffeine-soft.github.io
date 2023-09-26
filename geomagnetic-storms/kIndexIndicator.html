@@ -25,9 +25,11 @@
                 ['K-Index', value]
             ]);
 
+            var shorterDimension = Math.min(window.innerWidth, window.innerHeight);
+
             var options = {
                 animation:{easing: 'out'},
-                width: 400, height: 120,
+                width: shorterDimension + 'px', height: shorterDimension + 'px',
                 redFrom: 5, redTo: 9,
                 max: 9, min: 0,
                 yellowFrom: 3, yellowTo: (6),
@@ -43,8 +45,23 @@
 
         setInterval(drawCurrentKIndexGauge, 60*1000);
     </script>
+    <style>
+
+        /* Add CSS to make body and html 100% height */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        /* Add CSS to center the chart_div vertically */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-<div id="chart_div" style="width: 400px; height: 120px;"></div>
+<div id="chart_div"></div>
 </body>
 </html>
